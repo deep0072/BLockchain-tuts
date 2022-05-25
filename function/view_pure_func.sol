@@ -23,5 +23,6 @@ contract Mycontract {
         return x + y;
 
         // this is invalid because pure function cant access the already declare variable
+        
     }
 }
