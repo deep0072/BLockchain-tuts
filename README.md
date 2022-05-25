@@ -51,6 +51,13 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170225354-25e56b5b-e6b8-4a25-bfcc-0f1d580172f8.png)
 
+## Default values in solidity
+###  bool  public  b;  // false 
+###    int256  public  i;  // 0 
+###    uint256  public u; // 0 
+###    address  public  addr;  // 0X00000000000000000000000000000000 
+###    bytes32  public  b32;  // 0x000000000000000000000000000000000000 
+
 
 
  
