@@ -1,3 +1,4 @@
+# BLockchain-tuts
 
 
 # Solidity functions
@@ -34,6 +35,23 @@
  
  ## example of invalid view function 
  ![image](https://user-images.githubusercontent.com/46425800/170017530-ed319ce6-16cc-4c32-8be4-984e01b365b5.png)
+ 
+ 
+ ## type of variable
+ ### 1. local 2. global 3. state
+ 
+ ### 1. state variable ==> which store data on blockchain and decalred outside the function. lets take an example of it
+ 
+![image](https://user-images.githubusercontent.com/46425800/170218100-863c34b7-625d-4d92-b9e9-a6db597fbc58.png)
+
+### 2. Local variables ==> these var that declared inside the function. 
+![image](https://user-images.githubusercontent.com/46425800/170220498-be6ee68d-e570-4039-92f2-f4d85fb38089.png)
+
+### 3. Global variable ==> these var that store information such blockchain transactions. block number, block timestamp.account address (msg.sender) that call the function.
+
+![image](https://user-images.githubusercontent.com/46425800/170225354-25e56b5b-e6b8-4a25-bfcc-0f1d580172f8.png)
+
+
 
  
  
