@@ -37,6 +37,8 @@
  ![image](https://user-images.githubusercontent.com/46425800/170017530-ed319ce6-16cc-4c32-8be4-984e01b365b5.png)
  
  
+ # Variables
+ 
  ## type of variable
  ### 1. local 2. global 3. state
  
@@ -50,6 +52,18 @@
 ### 3. Global variable ==> these var that store information such blockchain transactions. block number, block timestamp.account address (msg.sender) that call the function.
 
 ![image](https://user-images.githubusercontent.com/46425800/170225354-25e56b5b-e6b8-4a25-bfcc-0f1d580172f8.png)
+
+
+## Constants
+
+### Constant ==> some time there is a state variable  that do not change. so we need to declate regular state variable as constant. constant variable always use less gas fee.
+### lets understand it with example
+![image](https://user-images.githubusercontent.com/46425800/170443559-dc67e95a-4229-4b43-9c7d-63b07e89c413.png)
+
+
+
+
+
 
 ## Default values in solidity
 ###  bool  public  b;  // false 
