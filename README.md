@@ -73,6 +73,28 @@
 ###    bytes32  public  b32;  // 0x000000000000000000000000000000000000 
 
 
+# Errors
+
+## error handling are moslty done to prevent the uneceesary use of gas. means refund of gas, any variable that is updated will  be reverted
+
+## error handling done using require, assert, revert
+
+### require ==> it is mostly used to validate the user inputs and for access control who gets to call the function
+
+![image](https://user-images.githubusercontent.com/46425800/170763867-672e473e-377f-4eda-958d-fdb9c432ab58.png)
+
+
+### revert ==> it is also does same thing as require but it is mostly used to prefer in nested condtions.
+
+![image](https://user-images.githubusercontent.com/46425800/170763999-a4c8bd56-b029-4896-84d1-f4393675bb8f.png)
+
+
+### assert ==> it will be always used to check for conditions that should always be true
+
+![image](https://user-images.githubusercontent.com/46425800/170764125-f739ef1b-bbbb-4d57-a5ce-6b47491dc1a3.png)
+
+
+
 
  
  
