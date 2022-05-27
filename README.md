@@ -45,6 +45,14 @@
  
  ### here in this snap shot we can use the require multiple time in these function but that would be redundant in nature 
  <br>
+ 
+ ## Contructor
+ ## these are the function that call once when we deploy the smartcontract. mostly used to intialise the variables
+ 
+ ![image](https://user-images.githubusercontent.com/46425800/170775979-d58b3276-5664-4b39-af18-8064a71ec600.png)
+ <br>
+ <br>
+
 
  
  
