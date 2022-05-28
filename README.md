@@ -61,11 +61,11 @@
  ## type of variable
  ### 1. local 2. global 3. state
  
- ### 1. state variable ==> which store data on blockchain and decalred outside the function. lets take an example of it
+ ### 1. state variable ==> which store data on blockchain and decalred outside the function. lets take an example of it. also store permanently on blockchain
  
 ![image](https://user-images.githubusercontent.com/46425800/170218100-863c34b7-625d-4d92-b9e9-a6db597fbc58.png)
 
-### 2. Local variables ==> these var that declared inside the function. 
+### 2. Local variables ==> these var that declared inside the function. these store data in memory which is temporary in nature
 ![image](https://user-images.githubusercontent.com/46425800/170220498-be6ee68d-e570-4039-92f2-f4d85fb38089.png)
 
 ### 3. Global variable ==> these var that store information such blockchain transactions. block number, block timestamp.account address (msg.sender) that call the function.
@@ -160,6 +160,23 @@
 ### returning array in function 
 
 ![image](https://user-images.githubusercontent.com/46425800/170819991-c419ee04-bd0e-4457-b4fc-99c167301a1f.png)
+
+
+
+
+
+# MAPPING
+
+## mapping is like dictionary in python and object in js. store key value pair. {"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4": 565666}
+
+## syntax = mapping(type of key==> type of value) public balances
+
+## to add key and update key in mapping
+![image](https://user-images.githubusercontent.com/46425800/170831716-bfb8c4e4-860f-4bf7-89cf-0d7f79baec8c.png)
+
+## to delete thevalue from mapping. it will leave the value of key default value that is declared varibale
+![image](https://user-images.githubusercontent.com/46425800/170831750-d843b149-9edd-4978-9097-4efb37d68da6.png)
+
 
 
 
