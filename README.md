@@ -190,7 +190,7 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170838027-e438cefa-3195-4229-862d-3cb415b0bc2f.png)
 
-### with the help of dot notation we can alao put data into struct
+### with the help of dot notation we can also put data into struct
 ![image](https://user-images.githubusercontent.com/46425800/170838054-9460f6a7-75ab-449a-bad4-b40829ec6742.png)
 
 
