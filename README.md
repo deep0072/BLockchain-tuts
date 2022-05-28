@@ -115,6 +115,64 @@
 
 
 
+# Array 
+
+### Dynamic array ==> not fixed size of array
+## syntax =  uint [] public arr
+
+### fixed array => fixed size of array
+### uint [4] public fixedArr; // can store upto 4 elements
+
+
+###  intialise the array
+### uint [] public num = [45,67,23,6,45];
+
+### // intialise the array with fixed size
+### uint [5] public num = [45,67,23,6,45]
+
+## Array operation
+
+### adding element in num array
+### nums = [45,67,23,6,45]
+### nums.push(50) ==> nums = [45,67,23,6,45,50]
+
+
+
+### delete element from array
+### delete num [2]; // delete element at index 2  but it will set 0 element at 2nd postion 
+### nums = [45,67,0,6,45,50]
+
+
+### pop == this method will remove element from last index of an array
+###  num.pop(); // removed last element nums = [45,67,23,6,45] that is 50
+
+
+### get size of array
+### nums.length
+
+
+
+### create an array in memory
+### uint[] memeory nums = new uint[](5); array in memory with fixed size of 5
+### in this pop and push will not work
+
+
+### returning array in function 
+
+![image](https://user-images.githubusercontent.com/46425800/170819991-c419ee04-bd0e-4457-b4fc-99c167301a1f.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
 
