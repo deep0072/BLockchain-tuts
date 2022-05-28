@@ -8,7 +8,7 @@ contract Error {
     } 
 
     function testRevert(uint i) public pure {
-        if (i >1){
+        if (i >1)
             if (i >2){
                 if (i >10){
                     revert("greater than 10");
@@ -22,4 +22,7 @@ contract Error {
     function  testAssert() public view {
         assert(x == 90);
     }
+
+
+    
 }
