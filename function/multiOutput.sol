@@ -27,6 +27,19 @@ contract Mycontract {
         y =2;
     }
 
+
+
+
+      // use fucntion in other function and capture its output via destructuring
+    function destructuringElement () public pure returns (uint x,uint y){
+        (x, y) = assigned(); // capturing assignment function output via destructuring
+
+        // to get onnly one output of function 
+        (, y) = assigned();
+
+
+    }
+
     
 }
     
