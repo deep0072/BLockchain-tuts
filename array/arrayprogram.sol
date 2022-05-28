@@ -7,12 +7,10 @@ contract arrayContract {
 
     
 
-    function remove(uint x) public{
-        for (uint i = x; i < arr.length-1; i++){
-            arr[i] = arr[i+1];
-             
 
-        }
+    function remove(uint x) public{
+        arr[x] = arr[arr.length-1]; // efficient approach but order will not preserved
+     
 
         arr.pop();
 
