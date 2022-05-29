@@ -222,7 +222,16 @@
 ![image](https://user-images.githubusercontent.com/46425800/170838027-e438cefa-3195-4229-862d-3cb415b0bc2f.png)
 
 ### with the help of dot notation we can also put data into struct
-![image](https://user-images.githubusercontent.com/46425800/170838054-9460f6a7-75ab-449a-bad4-b40829ec6742.png)
+![image](https://user-images.githubusercontent.com/46425800/170838054-9460f6a7-75ab-449a-bad4-b40829ec6742.png
+
+
+
+# Call Data
+
+### this is type of memory location where variable is decalred and used in inputs. so whenever it is used by another function then that data do not copied in memory. it directly used. so it save gas.
+
+###  ![image](https://user-images.githubusercontent.com/46425800/170858826-2f1b6a68-cb2d-41de-a0ad-4ce676a07ff3.png)
+
 
 
 
