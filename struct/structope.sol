@@ -18,8 +18,7 @@ contract myStruct{
     function examples() external {
         // initialization of structs
 
-        CAR memory suzuki = CAR("swift",2006,msg.sender); //memory means CAr type var that is struct will only exist while function being called
-        CAR memory Hundai = CAR({year:2008, model:"verna", owner:msg.sender}); // here in this order doesnot matter as we are creating with key and value
+      
         CAR memory tesla;
         tesla.model= "model s";
         tesla.year = 2012;
@@ -54,5 +53,22 @@ contract myStruct{
 
 
     }
+
+}
+
+struct Company {
+    string name;
+    string revenue
+}
+
+
+mapping(address=>Company) public companyInfo;
+
+function setBal() public {
+
+    Company storage _Company = companyInfo[msg.sender]// 
+    _Company.name = "Apple";
+
+
 
 }
