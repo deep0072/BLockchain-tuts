@@ -228,7 +228,7 @@
 
 # Call Data
 
-### this is type of memory location where variable is decalred and used in inputs. so whenever it is used by another function then that data do not copied in memory. it directly used. so it save gas.
+### this is type of memory location where variable is declared and used in inputs. so whenever it is used by another function then that data do not copied in memory. it directly used. so it save gas.
 
 ###  ![image](https://user-images.githubusercontent.com/46425800/170858826-2f1b6a68-cb2d-41de-a0ad-4ce676a07ff3.png)
 
