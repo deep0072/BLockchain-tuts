@@ -71,6 +71,9 @@
 ### storage keyword ==>  if want to change statevariable infos in function then i need to used storage keyword. just to tell the solidity data will be changed in permanent storage
 ![image](https://user-images.githubusercontent.com/46425800/170856556-97be53c1-7f61-4d02-a4ee-1311a32b111f.png)
 
+<br> 
+<br>
+
 
 
 
