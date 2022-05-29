@@ -65,10 +65,18 @@
 ![image](https://user-images.githubusercontent.com/46425800/170218100-863c34b7-625d-4d92-b9e9-a6db597fbc58.png)
 
 
-### if want to change statevariable infos in fucntion then i need to used storage keyword. just to tell the solidity data will be changed in permannet storage
+
+
+
+### storage keyword ==>  if want to change statevariable infos in function then i need to used storage keyword. just to tell the solidity data will be changed in permanent storage
 ![image](https://user-images.githubusercontent.com/46425800/170856556-97be53c1-7f61-4d02-a4ee-1311a32b111f.png)
 
-### if you use memory then statevariable will not be updated. as you can see the company name in given below snap shots
+
+
+
+
+
+### memory keyword ==> if you use memory then statevariable will not be updated. as you can see the company name in given below snap shots
 ![image](https://user-images.githubusercontent.com/46425800/170856572-300be7c5-1f1e-4c08-a0e9-5581e5ec4c2e.png)
 
 
