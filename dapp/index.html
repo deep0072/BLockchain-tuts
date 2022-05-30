@@ -83,6 +83,7 @@
   provider.send("eth_requestAccounts", []).then(() => {
   provider.listAccounts().then((accounts) => {
     signer = provider.getSigner(accounts[0]);
+    console.log(signer, "this is sign");
     MoodContract = new ethers.Contract(
       MoodContractAddress,
       MoodContractABI,
