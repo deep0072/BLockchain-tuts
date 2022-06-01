@@ -244,6 +244,21 @@
 ## call - ### all gas, returns bool and data 
 
 
+# falback function
+
+### these are executed when functions are not existed sends directly ether if fallback function is payable
+### so if someone call function foo inside this contract but it is not available then fallback function will call by default
+
+### if msg.data is not empty then fallback function are called
+
+### if msg.data is empty then receive function are called
+
+![image](https://user-images.githubusercontent.com/46425800/171462615-9376702f-5c03-48de-9b80-2b598de47bf8.png)
+
+
+
+
+
 
 
 
