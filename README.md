@@ -233,6 +233,17 @@
 ###  ![image](https://user-images.githubusercontent.com/46425800/170858826-2f1b6a68-cb2d-41de-a0ad-4ce676a07ff3.png)
 
 
+# 3 ways to send ether 
+
+## transfer ==> ### use 2308 gas, if trasfer fail for some reason then whole function fails
+
+
+## send ==>   ### use  2300 gas, returns bool in case of successful trasaction or not
+
+
+## call - ### all gas, returns bool and data 
+
+
 
 
 
