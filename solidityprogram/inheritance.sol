@@ -23,4 +23,6 @@ contract B is A {
     function lastName() public pure override returns (string memory) {
         return "malhotra";
     }
+
+ 
 }
