@@ -7,13 +7,13 @@ const { ethers } = require("hardhat")
 
 async function main() {
     // 1. tell the script we want to deploy the Nft
-    const nft = ethers.getContractFactory("nftee")
+    const nft = await ethers.getContractFactory("Mynft")
 
     //2.Deploy it
     const deployedContract = await nft.deploy()
 
     // 3. print the address of the deployed contract
-    console.log("deployed contract addresss", deployedContrac.address);
+    console.log("deployed contract addresss", deployedContract.address);
 
     // 4 now go to hardhat config.js to deploy on different test network 
 

@@ -9,7 +9,7 @@ module.exports = {
   networks: {
     rinkeby: {
       url: process.env.ALCHEMY_API_URL_KEY,
-      accounts: [rocess.env.PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY]
     }
 
   }
