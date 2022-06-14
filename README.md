@@ -256,6 +256,28 @@
 ![image](https://user-images.githubusercontent.com/46425800/171462615-9376702f-5c03-48de-9b80-2b598de47bf8.png)
 
 
+# InterFace
+
+### these are act as abstraction. these found on top of contract. theae are used to import other contract code. that helps use to avoid the duplication.
+
+
+
+
+### lets understand with it example. here in this snapshot there is Counter smart contract. we want to use its Inc() function in  other external contract.
+![image](https://user-images.githubusercontent.com/46425800/173636135-49b76aae-1dc0-466a-a436-fc9061009535.png)
+
+
+
+
+
+### this is another contract in which we import above given smartcontract by using interface keyword.  
+![image](https://user-images.githubusercontent.com/46425800/173636305-fe112a03-ee18-4561-9855-f432e7fd2e91.png)
+
+
+
+
+
+
 
 
 
