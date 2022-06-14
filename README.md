@@ -1,5 +1,7 @@
 # BLockchain-tuts
 
+# before dive into blaockchain check this one of the best explaination of Consesus
+![image](https://user-images.githubusercontent.com/46425800/173658194-e01dee4f-69ec-4f27-a625-699c6cbdb684.png)
 
 
 
