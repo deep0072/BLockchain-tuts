@@ -280,7 +280,7 @@
 
 # Library in solidity
 ### similar to contracts that contain reusable codes. A library has functions that can be called by other contracts. 
-### Deploying a common code by creating a library reduces the gas cost![image]
+### Deploying a common code by creating a library reduces the gas cost.
 ### in this we can declare the state variable
 
 
