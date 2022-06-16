@@ -278,6 +278,25 @@
 
 
 
+# Library in solidity
+### similar to contracts that contain reusable codes. A library has functions that can be called by other contracts. 
+### Deploying a common code by creating a library reduces the gas cost![image]
+### in this we can declare the state variable
+
+
+
+
+ #### in this snap shot library is declared outside the function. then in contract library function are accesed using dot notations
+ ![image](https://user-images.githubusercontent.com/46425800/174131166-c4faa8f0-a05c-418e-be0f-ce00c14d0102.png)
+
+
+
+
+
+
+
+
+
 
 
 
