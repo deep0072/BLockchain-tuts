@@ -287,6 +287,7 @@
 
 
  #### in this snap shot library is declared outside the function. then in contract library function are accesed using dot notations
+ 
  ![image](https://user-images.githubusercontent.com/46425800/174131166-c4faa8f0-a05c-418e-be0f-ce00c14d0102.png)
 
 
