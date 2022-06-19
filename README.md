@@ -287,13 +287,25 @@
 
 
  #### in this snap shot library is declared outside the function. then in contract library function are accesed using dot notations
- 
+![image](https://user-images.githubusercontent.com/46425800/174497100-93ec4da7-2110-4623-ab74-77cfab2e5d4e.png)
  ![image](https://user-images.githubusercontent.com/46425800/174131166-c4faa8f0-a05c-418e-be0f-ce00c14d0102.png)
-
-
-
-
-
+ 
+ 
+ 
+ 
+ # selfDestruct inBUilt function
+ 
+ ### used to delete the contract and send its all eth to mentioned address in built function it self
+ ### when we try to call the function from deleted contract. they will  not work
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### check snap shot
+![image](https://user-images.githubusercontent.com/46425800/174497113-9a41568d-b6d0-4529-b02c-6b6af291d840.png)
 
 
 
