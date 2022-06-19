@@ -299,11 +299,6 @@
  ### when we try to call the function from deleted contract. they will  not work
  
  
- 
- 
- 
- 
- 
 ### check snap shot
 ![image](https://user-images.githubusercontent.com/46425800/174497113-9a41568d-b6d0-4529-b02c-6b6af291d840.png)
 
