@@ -305,6 +305,27 @@
 
 
 
+# Erc20 standard with function
+
+##  It effectively allows smart contracts to act very similarly to a conventional cryptocurrency like Bitcoin, or Ethereum itself. In saying this, a token hosted on the Ethereum blockchain can be sent, received, checked of its total supply, and checked for the amount that is available on an individual address
+
+
+### ERC20 defines the functions balanceOf , totalSupply , transfer , transferFrom , approve , and allowance
+
+### balanceOf() ==> it allaows smartcontract to store and return the balance of the provided address.
+
+
+### transfer() ==> This function lets the owner of the contract send a given amount of the token to another address just like a conventional cryptocurrency transaction
+
+
+
+
+
+
+
+
+
+
 
 
 
