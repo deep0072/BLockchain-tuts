@@ -33,4 +33,8 @@ contract ERC20 {
     function balanceOf(address _addr) external views returns (uint256) {
         return balances[_addr];
     }
+
+    function _mint(uint256 _amount) external {
+        totalSupply += _amount;
+    }
 }
