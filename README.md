@@ -318,11 +318,44 @@
 ### transfer() ==> This function lets the owner of the contract send a given amount of the token to another address just like a conventional cryptocurrency transaction
 
 ### approve function ==>  This function lets the owner of the contract approve a given amount of tokens to be spent on behalf of another address.means  lets say i am the owner of wallet and i decide whoever want to  spend my tokne. i will allow them to spend my token. by giving approval. i will set the limit that the other wallet spend my token.
+![image](https://user-images.githubusercontent.com/46425800/175812609-0f5fe7d5-c306-428e-901b-b2ce533d18e5.png)
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 
 
 ### allowance function ==> This function lets the owner of the contract check the amount of tokens that have been approved for spending on behalf of another address.menas if i am the owner of my wallet and my friend has  spend my token on behalf of my wallet. so this function to check how much allowance is remaining for my friend.
+![image](https://user-images.githubusercontent.com/46425800/175812592-d111db94-eaa5-4315-a6a5-13423caffc9e.png)
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
 
 ### transferFrom function ==> This function lets the owner of the contract transfer a given amount of tokens from one address to another address.one address corresponds to the who actual have the token and other address is the one who want to spend the token. transferFrom function is used to spend the token on behalf of the owner of the contract.
+
+![image](https://user-images.githubusercontent.com/46425800/175812629-4871ebe8-bd9b-4a45-9dda-519b6b06dc85.png)
+
 
 
 
