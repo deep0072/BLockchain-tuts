@@ -318,7 +318,8 @@
 ### transfer() ==> This function lets the owner of the contract send a given amount of the token to another address just like a conventional cryptocurrency transaction
 
 ### approve function ==>  This function lets the owner of the contract approve a given amount of tokens to be spent on behalf of another address.means  lets say i am the owner of wallet and i decide whoever want to  spend my tokne. i will allow them to spend my token. by giving approval. i will set the limit that the other wallet spend my token.
-![image](https://user-images.githubusercontent.com/46425800/175812609-0f5fe7d5-c306-428e-901b-b2ce533d18e5.png)
+![image](https://user-images.githubusercontent.com/46425800/175827880-14e928df-9834-4e6c-9731-41ca1e98c032.png)
+
 <br>
 <br>
 <br>
@@ -335,7 +336,8 @@
 
 
 ### allowance function ==> This function lets the owner of the contract check the amount of tokens that have been approved for spending on behalf of another address.menas if i am the owner of my wallet and my friend has  spend my token on behalf of my wallet. so this function to check how much allowance is remaining for my friend.
-![image](https://user-images.githubusercontent.com/46425800/175812592-d111db94-eaa5-4315-a6a5-13423caffc9e.png)
+!![image](https://user-images.githubusercontent.com/46425800/175827917-7d7786e0-63f2-4c82-ad37-d69a9ab3b65b.png)
+
 <br>
 <br>
 <br>
