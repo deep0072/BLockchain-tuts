@@ -10,8 +10,10 @@ contract ERC20 {
     uint256 public circulatedSupply;
 
     mapping(address => uint256) public balances;
+    address public owner; 
 
     constructor(
+        ;
         string memory _tokeName,
         string memory _tokenSymbol,
         uint256 _totalSupply
@@ -20,6 +22,11 @@ contract ERC20 {
         tokenSymbol = _tokenSymbol;
         totalSupply = _totalSupply;
         balances[msg.sender] = totalSupply;
+    }
+
+    modifier OnlyAdmin() {
+        require(msg.sender == owner, "you are not authorised");
+        _;
     }
 
     function transfer(address reciever, uint256 amount) external {
@@ -34,7 +41,15 @@ contract ERC20 {
         return balances[_addr];
     }
 
-    function _mint(uint256 _amount) external {
+    function _mint(uint256 _amount) external OnlyAdmin{
         totalSupply += _amount;
+        balances[msg.sender]+=_amount
+
+    }
+
+
+    function burn(uint _amount) external {
+        total_supply -= _amount;
+        balances["msg.sender"] -= _amount;
     }
 }
