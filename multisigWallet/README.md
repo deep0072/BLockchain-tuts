@@ -22,7 +22,7 @@
 </ul>
 <ul>
   
-  <b> submitTransaction = by this function owner can submit the transaction prpopsal (that is owner want to send some token from wallet to the  recipeient)  to the wallet. this function result to transaciton id.</b> 
+  <b> submitTransaction = by this function owner can submit the transaction proposal (that is owner want to send some token from wallet to the  recipeient)  to the wallet. this function result to transaciton id.</b> 
 
 </ul>
 
