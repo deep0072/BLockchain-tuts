@@ -276,6 +276,17 @@
 ![image](https://user-images.githubusercontent.com/46425800/173636305-fe112a03-ee18-4561-9855-f432e7fd2e91.png)
 
 
+### if we want to modifie the parent function. then we need to use virtual keyword in parent function and use that same function in child and use override keyword in that function. also visibility of parent and child function should not be differd. check the snap shot of it.
+
+![image](https://user-images.githubusercontent.com/46425800/177289245-41a24e75-96e5-4450-98fc-e50b7f677ebd.png)
+
+
+<br>
+<br>
+<br>
+<br>
+
+
 
 
 # Library in solidity
