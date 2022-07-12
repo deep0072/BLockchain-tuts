@@ -377,6 +377,8 @@
 ### ECDSA to the private key, we get a 64-byte integer, which is two 32-byte integers that represent X and Y of the point on the elliptic curve
 
 ### Address of Account = To make an address from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result
+![image](https://user-images.githubusercontent.com/46425800/178487058-edb155e1-fbf6-44f7-84e3-f5687e398e77.png)
+
 
 
 
