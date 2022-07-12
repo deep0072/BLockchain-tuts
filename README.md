@@ -5,6 +5,7 @@
 
 
 
+
  ## in solidity data types are of 2 types
  ### values , reference
   
@@ -368,6 +369,14 @@
 ### transferFrom function ==> This function lets the owner of the contract transfer a given amount of tokens from one address to another address.one address corresponds to the who actual have the token and other address is the one who want to spend the token. transferFrom function is used to spend the token on behalf of the owner of the contract.
 
 ![image](https://user-images.githubusercontent.com/46425800/175812629-4871ebe8-bd9b-4a45-9dda-519b6b06dc85.png)
+
+
+# PRIVATE key, Public Key, address
+
+### public key = it is the function of private key and Elliptic Curve Digital Signature Algorithm
+### ECDSA to the private key, we get a 64-byte integer, which is two 32-byte integers that represent X and Y of the point on the elliptic curve
+
+### Address of Account = To make an address from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result
 
 
 
