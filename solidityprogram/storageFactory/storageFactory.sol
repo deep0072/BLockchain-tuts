@@ -24,4 +24,11 @@ contract storageFactory {
         // here .store() is function of simplestorage
         _simpleStorage.store(storeNumber);
     }
+
+    // fetch the retreive function from deployed contract
+
+    function sfGet(uint256 _storageIndex) public view returns (uint256) {
+        simpleStorage _simpleStorage = simpleStorageArray[_storageIndex];
+        return _simpleStorage.retreive();
+    }
 }
