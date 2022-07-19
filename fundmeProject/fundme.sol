@@ -17,4 +17,22 @@ contract Fundme {
         funders.push(msg.sender);
         addressToamountFunded[msg.sender] = msg.value;
     }
+
+    function withdraw() public {
+        for (
+            uint256 funderIndex = 0;
+            funderIndex < funders.length;
+            funderIndex++
+        ) {
+            addressToamountFunded[funders[funderIndex]] = 0;
+
+            funder = new address[](0);
+
+            // send ether
+
+            (bool status, ) = payable(msg.sender).call{value: msg.value}("");
+
+            require(status, "transaction failed");
+        }
+    }
 }
