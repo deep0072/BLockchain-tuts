@@ -3,9 +3,12 @@ pragma solidity ^0.8.5;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./priceConvert.sol";
 
+//	938610 gas
+//916123 gas
+
 contract Fundme {
     using priceConvert for uint256;
-    uint256 public minimumUsd = 20 * 1e18;
+    uint256 public constant MINIMUM_USD = 20 * 1e18;
     address[] public funders;
     mapping(address => uint256) public addressToamountFunded;
     address owner;
@@ -16,7 +19,7 @@ contract Fundme {
 
     function fund() public payable {
         require(
-            msg.value.getConversion() >= minimumUsd,
+            msg.value.getConversion() >= MINIMUM_USD,
             "not sufficient amount"
         );
         funders.push(msg.sender);
@@ -36,11 +39,13 @@ contract Fundme {
         ) {
             addressToamountFunded[funders[funderIndex]] = 0;
 
-            funder = new address[](0);
+            funders = new address[](0);
 
             // send ether
 
-            (bool status, ) = payable(msg.sender).call{value: msg.value}("");
+            (bool status, ) = payable(msg.sender).call{
+                value: address(this).balance
+            }("");
 
             require(status, "transaction failed");
         }
