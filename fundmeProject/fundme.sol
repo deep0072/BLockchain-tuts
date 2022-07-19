@@ -8,6 +8,11 @@ contract Fundme {
     uint256 public minimumUsd = 20 * 1e18;
     address[] public funders;
     mapping(address => uint256) public addressToamountFunded;
+    address owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
 
     function fund() public payable {
         require(
@@ -18,7 +23,12 @@ contract Fundme {
         addressToamountFunded[msg.sender] = msg.value;
     }
 
-    function withdraw() public {
+    modifier checkOwner() {
+        require(msg.sender == owner, "not authorised");
+        _;
+    }
+
+    function withdraw() public checkOwner {
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
