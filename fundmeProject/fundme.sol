@@ -3,7 +3,6 @@ pragma solidity ^0.8.5;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./priceConvert.sol";
 
-
 contract Fundme {
     using priceConvert for uint256;
     uint256 public constant MINIMUM_USD = 20 * 1e18;
@@ -47,5 +46,13 @@ contract Fundme {
 
             require(status, "transaction failed");
         }
+    }
+
+
+    // if someone send ether to this address then fund function will call automatically
+    
+
+    receive () external payable {
+        fund();
     }
 }
