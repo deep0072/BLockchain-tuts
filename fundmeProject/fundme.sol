@@ -19,6 +19,7 @@ contract Fundme {
             msg.value.getConversion() >= MINIMUM_USD,
             "not sufficient amount"
         );
+
         funders.push(msg.sender);
         addressToamountFunded[msg.sender] = msg.value;
     }
@@ -48,11 +49,9 @@ contract Fundme {
         }
     }
 
+    // if someone send ether to this address then fund function will call automatically by recieve
 
-    // if someone send ether to this address then fund function will call automatically
-    
-
-    receive () external payable {
+    receive() external payable {
         fund();
     }
 }
