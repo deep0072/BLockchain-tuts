@@ -331,6 +331,10 @@
 
 <br>
 
-### to compile use the following command
+### to compile with the help of "solcjs" use the following command
 
 #### yarn solcjs --bin --abi --include-path node_modules/ --base-path . -0 . simpleStorage.sol
+
+#### --base path ==> it is used to specify the path where the solidity code is present.
+
+#### -o with dot ==> it is used to specify the path where the output file is to be stored.
