@@ -3,9 +3,9 @@
     "ethers": "^5.6.9",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
-    "solc": "0.8.7-fixed"
+    "solc": "^0.8.15"
   },
   "scripts": {
-    "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -0 . simpleStorage.sol"
+    "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o . simpleStorage.sol"
   }
 }
