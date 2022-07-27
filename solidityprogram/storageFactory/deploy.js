@@ -1,3 +1,11 @@
+// connect to local node via using rpc url using provider
+// connected to local wallet with help of private key
+// in order to deploy contract we need
+// read abi of contract using fs module
+//  read bytecode of contract
+// contract factory==> in ethers is just an object to deploy smart contract.
+// then use deploy method to deploy contract
+
 // here require meaning is to import
 const ethers = require("ethers");
 const fs = require("fs-extra");
