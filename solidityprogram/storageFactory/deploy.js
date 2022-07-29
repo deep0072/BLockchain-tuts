@@ -13,7 +13,6 @@ require("dotenv").config();
 
 async function main() {
   // http: HTTP://127.0.0.1:7545 ==> rpc url that you are using to connect to your local node blockchain
-  console.log(process.env);
 
   // connect to local node via using rpc url
   const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
