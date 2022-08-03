@@ -20,10 +20,11 @@ async function main() {
 
     // then verify it
     await verify(SimpleStorageDeploy.address, []);
-    const currentValue = SimpleStorageDeploy.retrieve();
+    const currentValue = await SimpleStorageDeploy.retreive();
     console.log(currentValue, "current value");
-    const transactionResponse = SimpleStorageDeploy.store(69);
-    const updatedValue = SimpleStorageDeploy.retrieve();
+    const transactionResponse = await SimpleStorageDeploy.store(69);
+    await transactionResponse.wait(1)
+    const updatedValue = await SimpleStorageDeploy.retreive();
     console.log(updatedValue, "updated_value");
   }
 }

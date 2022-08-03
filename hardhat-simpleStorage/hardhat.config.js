@@ -3,8 +3,11 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
-const RINKEBY_PRIVATE_KEY = process.env.private_key;
-const Etherscan_API_KEY = process.env.etherscan_api_key;
+const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY;
+const Etherscan_API_KEY = process.env.Etherscan_API_KEY;
+console.log(RINKEBY_RPC_URL)
+console.log(RINKEBY_PRIVATE_KEY)
+console.log(Etherscan_API_KEY)
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
