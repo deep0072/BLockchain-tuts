@@ -23,7 +23,7 @@ async function main() {
     const currentValue = await SimpleStorageDeploy.retreive();
     console.log(currentValue, "current value");
     const transactionResponse = await SimpleStorageDeploy.store(69);
-    await transactionResponse.wait(1)
+    await transactionResponse.wait(1);
     const updatedValue = await SimpleStorageDeploy.retreive();
     console.log(updatedValue, "updated_value");
   }
