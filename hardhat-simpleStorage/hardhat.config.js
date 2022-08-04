@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
+require("./tasks/blockNumber");
 
 const Etherscan_API_KEY = process.env.Etherscan_API_KEY;
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
