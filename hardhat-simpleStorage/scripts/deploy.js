@@ -11,6 +11,7 @@ async function main() {
   const SimpleStorageDeploy = await simpleStorage.deploy();
   await SimpleStorageDeploy.deployed();
   console.log(`deployed contract to ${SimpleStorageDeploy.address}`);
+  console.log(network.config.chainId, "chainId");
 
   // to verify check the deployed contract is on rinkeby network
 
