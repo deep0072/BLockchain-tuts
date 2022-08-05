@@ -23,7 +23,7 @@ contract ContractFactory {
     myAccount[] public accounts;
 
     function createAccount(address _owner) external payable {
-        myAccount account = new myAccount{value: 111}(_owner); // calling another contract using new followed by contract name
+        myAccount account = new myAccount{value: 111}(_owner); // creating another contract using new followed by contract name and then sending ethers
 
         accounts.push(account);
     }
