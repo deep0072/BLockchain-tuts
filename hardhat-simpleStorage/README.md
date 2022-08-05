@@ -49,5 +49,5 @@ yarn hardhat test --grep "msg that is describing in "it" params"
 as ypu can see therare two "it"
 if i use yarn hardhat test --grep "should start with zero"
 
-then it will test oonly first case
+then it will test only first case
 ""
