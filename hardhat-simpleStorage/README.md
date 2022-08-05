@@ -29,6 +29,8 @@ yarn hardhat clean
 ```
 ## testing smartContract
 
+command for test yarn hardhat test
+
 #### in test folder write test_Script
 #### structure
 
@@ -37,3 +39,9 @@ describe is keyword that take 2 params. first is smartcontract name or any msg. 
 
  so when we deploy then after this function we will use it()
  keyword that take 2 params. one is msg that we want to test kind of msg. second one will be async function that will try to get each function of deployed smart contract.
+
+
+#### if i want to test perticulat testing scenario then use this command
+yarn hardhat test --grep "msg that is describing in "it" params"
+
+""
