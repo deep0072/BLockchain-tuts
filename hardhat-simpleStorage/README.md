@@ -44,4 +44,10 @@ describe is keyword that take 2 params. first is smartcontract name or any msg. 
 #### if i want to test perticulat testing scenario then use this command
 yarn hardhat test --grep "msg that is describing in "it" params"
 
+![image](https://user-images.githubusercontent.com/46425800/183158734-5eeb2386-57e2-4be7-898b-d56613e760bc.png)
+
+as ypu can see therare two "it"
+if i use yarn hardhat test --grep "should start with zero"
+
+then it will test oonly first case
 ""
