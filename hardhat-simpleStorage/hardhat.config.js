@@ -2,6 +2,7 @@ require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 require("./tasks/blockNumber");
+require("hardhat-gas-reporter");
 
 const Etherscan_API_KEY = process.env.Etherscan_API_KEY;
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
@@ -25,4 +26,7 @@ module.exports = {
   },
   solidity: "0.8.9",
   etherscan: { apiKey: Etherscan_API_KEY },
+  gasReporter:{
+    enabled:true
+  }
 };
