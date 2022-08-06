@@ -32,6 +32,7 @@ module.exports = {
     outputFile: "gasReports.txt",
     noColors:true,
     currency:"USD",
-    coinmarketcap: COINMARKETCAP
+    coinmarketcap: COINMARKETCAP,
+    token:"MATIC"
   }
 };
