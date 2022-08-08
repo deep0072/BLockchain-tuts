@@ -4,24 +4,29 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./priceConverter.sol";
 
 contract Fundme {
+    event funded(address sender, uint msg);
     using priceConvert for uint256;
     uint256 public constant MINIMUM_USD = 20 * 1e18;
     address[] public funders;
     mapping(address => uint256) public addressToamountFunded;
     address owner;
+    AggregatorV3Interface public priceFeed;
 
-    constructor() {
+    constructor(address priceFeedAddress) {
         owner = msg.sender;
+        priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
     function fund() public payable {
         require(
-            msg.value.getConversion() >= MINIMUM_USD,
+            // here msg.value is first param that is defined in getConversion() function and 2nd param will be passed in paranthesis of this function
+            msg.value.getConversion(priceFeed) >= MINIMUM_USD,
             "not sufficient amount"
         );
 
         funders.push(msg.sender);
         addressToamountFunded[msg.sender] = msg.value;
+        emit funded(msg.sender, msg.value);
     }
 
     modifier checkOwner() {
