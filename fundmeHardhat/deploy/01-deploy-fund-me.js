@@ -1,10 +1,11 @@
-const { network } = require("hardhat");
+const {  ethers, run, network  } = require("hardhat");
+const {verify} = require("../utils/verify")
 const {
   networkConfig,
   developmentChains,
 } = require("../helper-hardhat-config");
 module.exports = async ({ getNamedAccounts, deployments }) => {
-  const { deploy, log } = deployments;
+  const { deploy, log, get} = deployments;
   const { deployer, user } = await getNamedAccounts();
   const chainId = network.config.chainId;
   console.log(chainId, "chainId")
@@ -24,16 +25,24 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
 
   }
-
-  const Fundme = await deploy("Fundme", {
+  const args = [ethUsdPriceFeedAddress]
+  const fundme = await deploy("Fundme", {
     from: deployer, // fetch the index of pvt key mentioned in accounts in hardhat.config.js
-    args: [ethUsdPriceFeedAddress], // this is the address for the price feed . which will gives use the usd price of token on diffenrent chain
+    args: args, // this is the address for the price feed . which will gives use the usd price of token on diffenrent chain
     logs: true,
   });
   log("fund me deployed")
   log(deployer)
 
   log("-------------------------------------------------------------");
+
+
+  if (!developmentChains.includes(network.name) && process.env.Etherscan_API_KEY){
+    console.log(fundme.address, "address")
+    await verify(fundme.address, args)
+  }
+
 };
 
-module.exports.tags = ["all", "Fundme"];
+
+module.exports.tags = ["all", "Fundme"]

@@ -15,7 +15,7 @@ const COINMARKETCAP = process.env.COINMARKETCAP;
 module.exports = {
   defaultNetowrk: "hardhat",
   networks: {
-   
+
     localhost: {
       url: "http://127.0.0.1:8545/",
       //accounts: here we dont need to mention here. hardhat can handle all this stuff
@@ -39,11 +39,12 @@ module.exports = {
     coinmarketcap: COINMARKETCAP,
     token: "MATIC",
   },
-    namedAccounts: {
-      deployer: {
-        default: 0, //this is the index of pvt key that is mentioned in above given accounts array 
+  namedAccounts: {
+    deployer: {
+      default: 0, //this is the index of pvt key that is mentioned in above given accounts array 
       user: {
         default: 1,
       },
-  },
-};
+    },
+  }
+}
