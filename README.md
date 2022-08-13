@@ -1,5 +1,23 @@
 # BLockchain-tuts
 
+## solidity style Guide
+
+<li>error code</li>
+<li> library</li>
+<li>interfaces</li>
+<li>contract</li>
+<li>then type Declarations</li>
+<li>state variable decelration</li>
+<li>event </li>
+<li>modifier </li>
+<li>constructor </li>
+<li>recieve fallback fucntion </li>
+<li>external function </li>
+<li>public function</li>
+<li>internal function </li>
+<li>view pure function </li>
+
+
 # before dive into blockchain check this one of the best explaination of Consesus
 
 ![image](https://user-images.githubusercontent.com/46425800/173658194-e01dee4f-69ec-4f27-a625-699c6cbdb684.png)
@@ -33,6 +51,8 @@
 ### also read the existing variable in code
 
 ## example of invalid pure function
+
+
 
 ![image](https://user-images.githubusercontent.com/46425800/170017269-8857bf35-fb96-4a7f-89b6-7871ba0a9dfe.png)
 
