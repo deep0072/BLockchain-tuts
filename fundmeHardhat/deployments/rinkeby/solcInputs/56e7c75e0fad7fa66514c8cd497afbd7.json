@@ -1,0 +1,41 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/fundme.sol": {
+      "content": "pragma solidity ^0.8.5;\r\n\r\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\r\nimport \"./priceConverter.sol\";\r\n\r\ncontract Fundme {\r\n    event funded(address sender, uint msg);\r\n    using priceConvert for uint256;\r\n    uint256 public constant MINIMUM_USD = 20 * 1e18;\r\n    address[] public funders;\r\n    mapping(address => uint256) public addressToamountFunded;\r\n    address owner;\r\n    AggregatorV3Interface public priceFeed;\r\n\r\n    constructor(address priceFeedAddress) {\r\n        owner = msg.sender;\r\n        priceFeed = AggregatorV3Interface(priceFeedAddress);\r\n    }\r\n\r\n    function fund() public payable {\r\n        require(\r\n            // here msg.value is first param that is defined in getConversion() function and 2nd param will be passed in paranthesis of this function\r\n            msg.value.getConversion(priceFeed) >= MINIMUM_USD,\r\n            \"not sufficient amount\"\r\n        );\r\n\r\n        funders.push(msg.sender);\r\n        addressToamountFunded[msg.sender] = msg.value;\r\n        emit funded(msg.sender, msg.value);\r\n    }\r\n\r\n    modifier checkOwner() {\r\n        require(msg.sender == owner, \"not authorised\");\r\n        _;\r\n    }\r\n\r\n    function withdraw() public checkOwner {\r\n        for (\r\n            uint256 funderIndex = 0;\r\n            funderIndex < funders.length;\r\n            funderIndex++\r\n        ) {\r\n            addressToamountFunded[funders[funderIndex]] = 0;\r\n\r\n            funders = new address[](0);\r\n\r\n            // send ether\r\n\r\n            (bool status, ) = payable(msg.sender).call{\r\n                value: address(this).balance\r\n            }(\"\");\r\n\r\n            require(status, \"transaction failed\");\r\n        }\r\n    }\r\n\r\n    // if someone send ether to this address then fund function will call automatically by recieve\r\n\r\n    receive() external payable {\r\n        fund();\r\n    }\r\n}\r\n"
+    },
+    "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface AggregatorV3Interface {\n  function decimals() external view returns (uint8);\n\n  function description() external view returns (string memory);\n\n  function version() external view returns (uint256);\n\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n}\n"
+    },
+    "contracts/priceConverter.sol": {
+      "content": "pragma solidity ^0.8.7;\r\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\r\n\r\nlibrary priceConvert {\r\n    // to get the value of eth in usd  we need to interact with other address\r\n    function getPrice(AggregatorV3Interface priceFeed)\r\n        internal\r\n        view\r\n        returns (uint256)\r\n    {\r\n        // get address of the conract that give price of eth ==> 0x8A753747A1Fa494EC906cE90E9f37563A8AF630e\r\n\r\n        (\r\n            ,\r\n            /*uint80 roundID*/\r\n            int256 price, /*uint startedAt*/ /*uint timeStamp*/ /*uint80 answeredInRound*/\r\n            ,\r\n            ,\r\n\r\n        ) = priceFeed.latestRoundData();\r\n        return uint256(price * 1e10);\r\n        // return price of eth lets assume 1200 dollar follower by 18 digit\r\n    }\r\n\r\n    function getConversion(uint256 amounteth, AggregatorV3Interface priceFeed)\r\n        internal\r\n        view\r\n        returns (uint256)\r\n    {\r\n        uint256 ethPrice = getPrice(priceFeed); // eprice 1500 dollar followed  by 18 digit\r\n        // amount of eth also follwod by 18 zeros\r\n        // then multiply price with amout of th\r\n        /*3000000000000000000000*1000000000000000000/1000000000000000000\r\n        3e+21\r\n       \r\n \r\n        */\r\n\r\n        uint256 ethUSD = (amounteth * ethPrice) / 1e18;\r\n        return ethUSD;\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

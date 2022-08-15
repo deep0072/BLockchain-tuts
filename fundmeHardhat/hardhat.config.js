@@ -14,6 +14,7 @@ const COINMARKETCAP = process.env.COINMARKETCAP;
 
 module.exports = {
   defaultNetowrk: "hardhat",
+
   networks: {
 
     localhost: {
@@ -25,6 +26,7 @@ module.exports = {
       url: RINKEBY_RPC_URL,
       accounts: [RINKEBY_PRIVATE_KEY],
       chainId: 4,
+      blockConfirmations:6
     },
   },
   solidity: {
