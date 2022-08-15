@@ -27,7 +27,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     from: deployer, // fetch the index of pvt key mentioned in accounts in hardhat.config.js
     args: args, // this is the address for the price feed . which will gives use the usd price of token on diffenrent chain
     logs: true,
-    waitConfirmations: network.config.blockConfirmations || 2,
+    waitConfirmations: network.config.blockConfirmations || 1,
   });
   log("fund me deployed");
 

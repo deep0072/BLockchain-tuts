@@ -18,7 +18,7 @@ describe("Fundme", async () => {
     // here deployer is the account
     console.log("deploying contract...........")
     mockV3Aggregator = await ethers.getContract("MockV3Aggregator", deployer);
-    console.log(mockV3Aggregator.address)
+
   });
 
   // checking price feed address are equal or not
@@ -34,7 +34,7 @@ describe("Fundme", async () => {
 
   describe("fund", async () => {
     it("checking fund are working or fails", async () => {
-      await fundme.fund();
+      await expect(fundme.fund()).to.be.revertedWith("not sufficient amount please check also"); // here we are checking if there is no fund then test should not break the code.
     });
   });
 });
