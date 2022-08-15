@@ -8,17 +8,17 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy, log, get } = deployments;
   const { deployer, user } = await getNamedAccounts();
   const chainId = network.config.chainId;
-  console.log(chainId, "chainId");
+  // console.log(chainId, "chainId");
 
   // if contract doesnot exist then we deploy minimal version of it for our local
   let ethUsdPriceFeedAddress; // intialise the var for priceFeed
 
   if (developmentChains.includes(network.name)) {
-    console.log("local network..");
+    // console.log("local network..");
     const ethUsdAggregator = await deployments.get("MockV3Aggregator"); // get deployed contract address
     ethUsdPriceFeedAddress = ethUsdAggregator.address; // that give the ethUsdPriceFeedAddress
   } else {
-    console.log(network.name, chainId);
+    // console.log(network.name, chainId);
 
     ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeedAddress"]; // get the address pricefeed of different blockchainbased in chainId stored in helper-hardhat-config
   }
@@ -37,7 +37,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     !developmentChains.includes(network.name) &&
     process.env.Etherscan_API_KEY
   ) {
-    console.log(fundme.address, "address");
+    // console.log(fundme.address, "address");
     await verify(fundme.address, args);
   }
 };

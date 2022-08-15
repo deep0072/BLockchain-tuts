@@ -10,4 +10,9 @@ npx hardhat test
 GAS_REPORT=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
+
+to run perticular test case
+yarn hardhat test --grep "message inside the "'it'"
 ```
+
+
