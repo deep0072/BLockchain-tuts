@@ -17,7 +17,6 @@
 <li>internal function </li>
 <li>view pure function </li>
 
-
 # before dive into blockchain check this one of the best explaination of Consesus
 
 ![image](https://user-images.githubusercontent.com/46425800/173658194-e01dee4f-69ec-4f27-a625-699c6cbdb684.png)
@@ -51,8 +50,6 @@
 ### also read the existing variable in code
 
 ## example of invalid pure function
-
-
 
 ![image](https://user-images.githubusercontent.com/46425800/170017269-8857bf35-fb96-4a7f-89b6-7871ba0a9dfe.png)
 
@@ -344,6 +341,8 @@
 ### Address of Account = To make an address from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result
 
 ![image](https://user-images.githubusercontent.com/46425800/178487058-edb155e1-fbf6-44f7-84e3-f5687e398e77.png)
+
+### contract address = The contract address is usually given when a contract is deployed to the Ethereum Blockchain. The address comes from the creator's address and the number of transactions sent from that address (the “nonce”)
 
 # Compilation and deploying using JS
 
