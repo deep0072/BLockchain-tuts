@@ -78,8 +78,8 @@ describe("Fundme", async () => {
       const { gasUsed, effectiveGasPrice } = transReciept;
       const gasCost = gasUsed.mul(effectiveGasPrice);
 
-      const endingFundmeBalance = await fundme.getBalance(fundme.address); // check contract balance after withdrawl
-      const endingDeployerBalance = await fundme.getBalance(deployer); // check owner balanee who withdraw the fund
+      const endingFundmeBalance = await fundme.provider.getBalance(fundme.address); // check contract balance after withdrawl
+      const endingDeployerBalance = await fundme.provider.getBalance(deployer); // check owner balanee who withdraw the fund
 
       // now check total balance is zero
       assert.equal(endingFundmeBalance, 0); // it indicates we have withdraw all money
