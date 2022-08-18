@@ -5,21 +5,17 @@ describe("Fundme", async () => {
   let deployer;
   let fundme;
   let mockV3Aggregator;
-  const sendValue = ethers.utils.parseEther("1"); // ethvalue
+  const sendValue = ethers.utils.parseEther("1"); // ethvalue derived from a digit followed by 18 zeros
   beforeEach(async () => {
     deployer = (await getNamedAccounts()).deployer; // get account eg. rinkeby, or hardhat local
-    console.log(
-      deployer.address,
-      "deployerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
-    );
 
     await deployments.fixture(["all"]); // fixture method deploy the contract that is avialable in deploy folder
     // here "all" is the tag that is mentioned in deploy folder
 
     fundme = await ethers.getContract("Fundme", deployer); // get most recent deplyed contract
-    console.log(fundme.provider, "fundme provider");
+
     // here deployer is the account
-    console.log("deploying contract...........");
+
     mockV3Aggregator = await ethers.getContract("MockV3Aggregator", deployer);
   });
 
@@ -27,7 +23,7 @@ describe("Fundme", async () => {
   describe("constructor", async () => {
     it("set the Agreegator price feed address", async function () {
       const response = await fundme.priceFeed();
-      console.log(response, "response");
+
       assert.equal(response, mockV3Aggregator.address);
     });
   });
@@ -43,8 +39,8 @@ describe("Fundme", async () => {
 
     it("updated amount of eth", async function () {
       await fundme.fund({ value: sendValue });
-      console.log(deployer, "my deployer address");
-      const updatedEth = await fundme.addressToamountFunded(deployer);
+
+      const updatedEth = await fundme.addressToAmountFunded(deployer);
       assert.equal(updatedEth.toString(), sendValue.toString());
     });
 
@@ -66,7 +62,8 @@ describe("Fundme", async () => {
       const startingFundmeBalance = await fundme.provider.getBalance(
         // getBalance is method  used to get balance of any contract
         fundme.address
-      ); // check fund me balance
+        // check fund me balance
+      );
 
       const startingDeployerBalance = await fundme.provider.getBalance(
         deployer
@@ -76,18 +73,65 @@ describe("Fundme", async () => {
       const transResponse = await fundme.withdraw();
       const transReciept = await transResponse.wait(1); //wait for block confirmation
       const { gasUsed, effectiveGasPrice } = transReciept;
-      const gasCost = gasUsed.mul(effectiveGasPrice);
+      const gasCost = gasUsed.mul(effectiveGasPrice); // deduce the gas fee
 
-      const endingFundmeBalance = await fundme.provider.getBalance(fundme.address); // check contract balance after withdrawl
+      const endingFundmeBalance = await fundme.provider.getBalance(
+        // its output is big number type
+        fundme.address
+      ); // check contract balance after withdrawl
       const endingDeployerBalance = await fundme.provider.getBalance(deployer); // check owner balanee who withdraw the fund
 
       // now check total balance is zero
-      assert.equal(endingFundmeBalance, 0); // it indicates we have withdraw all money
+      assert.equal(endingFundmeBalance, 0); // it indicates we have withdrawn all money
+
+      // check owner balance that he is recieved or not we add gas cost to deployer balance (owner balance) because owner will spend some gas here after withdrawl
       assert.equal(
         startingFundmeBalance.add(startingDeployerBalance).toString(),
         endingDeployerBalance.add(gasCost).toString()
       );
-      // check owner balance that he is recieved or not we add gas cost to deployer balance (owner balance) because owner will spend some gas here
+    });
+
+    it("allows us to withdraw from multiple funders", async function () {
+      const accounts = await ethers.getSigners();
+
+      for (let i = 1; i < 6; i++) {
+        const fundmeConnectedContract = await fundme.connect(accounts[i]); // now connect  each acoount to fundme smartcontract
+        await fundmeConnectedContract.fund({ value: sendValue });
+      }
+
+      const startingFundmeBalance = await fundme.provider.getBalance(
+        fundme.address
+      );
+
+      const startingDeployerBalance = await fundme.provider.getBalance(
+        deployer
+      );
+      console.log("withdrawing fund..................");
+      const transactionResponse = await fundme.withdraw();
+      const transactionReceipt = await transactionResponse.wait(1);
+      const endingFundmeBalance = await fundme.provider.getBalance(
+        fundme.address
+      );
+      const endingDeployerBalance = await fundme.provider.getBalance(deployer);
+
+      const { gasUsed, effectiveGasPrice } = transactionReceipt;
+      const gasCost = gasUsed.mul(effectiveGasPrice);
+      assert.equal(endingFundmeBalance, 0);
+
+      assert.equal(
+        startingFundmeBalance.add(startingDeployerBalance).toString(),
+        endingDeployerBalance.add(gasCost).toString()
+      );
+
+      // make sure funders are reset properly
+      await expect(fundme.funders(0)).to.be.reverted;
+
+      for (i = 1; i < 6; i++) {
+        assert.equal(
+          await fundme.addressToAmountFunded(accounts[i].address),
+          0
+        );
+      }
     });
   });
 });

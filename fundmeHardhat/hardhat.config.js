@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-waffle");
 require("dotenv").config();
 require("hardhat-deploy");
 require("hardhat-gas-reporter");
+require("@nomiclabs/hardhat-waffle");
 /** @type import('hardhat/config').HardhatUserConfig */
 const Etherscan_API_KEY = process.env.Etherscan_API_KEY;
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
@@ -16,7 +17,6 @@ module.exports = {
   defaultNetowrk: "hardhat",
 
   networks: {
-
     localhost: {
       url: "http://127.0.0.1:8545/",
       //accounts: here we dont need to mention here. hardhat can handle all this stuff
@@ -26,7 +26,7 @@ module.exports = {
       url: RINKEBY_RPC_URL,
       accounts: [RINKEBY_PRIVATE_KEY],
       chainId: 4,
-      blockConfirmations:6
+      blockConfirmations: 6,
     },
   },
   solidity: {
@@ -43,10 +43,10 @@ module.exports = {
   },
   namedAccounts: {
     deployer: {
-      default: 0, //this is the index of pvt key that is mentioned in above given accounts array 
+      default: 0, //this is the index of pvt key that is mentioned in above given accounts array
       user: {
         default: 1,
       },
     },
-  }
-}
+  },
+};

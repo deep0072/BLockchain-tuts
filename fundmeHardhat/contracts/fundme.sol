@@ -2,6 +2,7 @@ pragma solidity ^0.8.5;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./priceConverter.sol";
+import "hardhat/console.sol";
 
 error Fundme_NotOwner();
 
@@ -9,7 +10,7 @@ contract Fundme {
     using priceConvert for uint256;
     address[] public funders;
     uint256 public constant MINIMUM_USD = 20 * 1e18;
-    mapping(address => uint256) public addressToamountFunded;
+    mapping(address => uint256) public addressToAmountFunded;
     address owner;
     AggregatorV3Interface public priceFeed;
     event funded(address sender, uint256 msg);
@@ -35,7 +36,7 @@ contract Fundme {
         );
 
         funders.push(msg.sender);
-        addressToamountFunded[msg.sender] += msg.value;
+        addressToAmountFunded[msg.sender] += msg.value;
         emit funded(msg.sender, msg.value);
     }
 
@@ -45,7 +46,7 @@ contract Fundme {
             funderIndex < funders.length;
             funderIndex = funderIndex++
         ) {
-            addressToamountFunded[funders[funderIndex]] = 0;
+            addressToAmountFunded[funders[funderIndex]] = 0;
 
             funders = new address[](0);
 
