@@ -44,20 +44,20 @@ contract Fundme {
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
-            funderIndex = funderIndex++
+            funderIndex++
         ) {
             addressToAmountFunded[funders[funderIndex]] = 0;
 
-            funders = new address[](0);
-
             // send ether
-
-            (bool status, ) = payable(msg.sender).call{
-                value: address(this).balance
-            }("");
-
-            require(status, "transaction failed");
         }
+
+        funders = new address[](0);
+
+        (bool status, ) = payable(msg.sender).call{
+            value: address(this).balance
+        }("");
+
+        require(status, "transaction failed");
     }
 
     // if someone send ether to this address then fund function will call automatically by recieve

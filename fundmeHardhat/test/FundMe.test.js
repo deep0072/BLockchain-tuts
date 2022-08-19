@@ -106,6 +106,7 @@ describe("Fundme", async () => {
       const startingDeployerBalance = await fundme.provider.getBalance(
         deployer
       );
+      console.log("startingDeployerBalance", startingDeployerBalance);
       console.log("withdrawing fund..................");
       const transactionResponse = await fundme.withdraw();
       const transactionReceipt = await transactionResponse.wait(1);
@@ -123,8 +124,11 @@ describe("Fundme", async () => {
         endingDeployerBalance.add(gasCost).toString()
       );
 
+      console.log(endingDeployerBalance);
+
       // make sure funders are reset properly
       await expect(fundme.funders(0)).to.be.reverted;
+      console.log(await fundme.addressToAmountFunded(accounts[1].address));
 
       for (i = 1; i < 6; i++) {
         assert.equal(
@@ -132,6 +136,15 @@ describe("Fundme", async () => {
           0
         );
       }
+    });
+    it("only owner can withdraw", async function () {
+      const account = await ethers.getSigners();
+      const attacker = account[1];
+      console.log(attacker, "attacker");
+
+      const attackerConnect = await fundme.connect(attacker);
+
+      await expect(attackerConnect.withdraw()).to.be.reverted;
     });
   });
 });
