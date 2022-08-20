@@ -22,7 +22,7 @@ describe("Fundme", async () => {
   // checking price feed address are equal or not
   describe("constructor", async () => {
     it("set the Agreegator price feed address", async function () {
-      const response = await fundme.s_priceFeed();
+      const response = await fundme.getPriceFeed();
 
       assert.equal(response, mockV3Aggregator.address);
     });
@@ -40,13 +40,13 @@ describe("Fundme", async () => {
     it("updated amount of eth", async function () {
       await fundme.fund({ value: sendValue });
 
-      const updatedEth = await fundme.s_addressToAmountFunded(deployer);
+      const updatedEth = await fundme.getaddressToAmountFunded(deployer);
       assert.equal(updatedEth.toString(), sendValue.toString());
     });
 
-    it("add funder to array if s_funders", async function () {
+    it("add funder to array if getFunders", async function () {
       await fundme.fund({ value: sendValue });
-      const response = await fundme.s_funders(0);
+      const response = await fundme.getFunders(0);
       assert.equal(response, deployer); // checking funder is the caller of function
     });
   });
@@ -123,7 +123,7 @@ describe("Fundme", async () => {
       );
     });
 
-    it("allows us to Withdraw from multiple s_funders", async function () {
+    it("allows us to Withdraw from multiple getFunders", async function () {
       const accounts = await ethers.getSigners();
 
       for (let i = 1; i < 6; i++) {
@@ -158,19 +158,19 @@ describe("Fundme", async () => {
 
       console.log(endingDeployerBalance);
 
-      // make sure s_funders are reset properly
-      await expect(fundme.s_funders(0)).to.be.reverted;
-      console.log(await fundme.s_addressToAmountFunded(accounts[1].address));
+      // make sure getFunders are reset properly
+      await expect(fundme.getFunders(0)).to.be.reverted;
+      console.log(await fundme.getaddressToAmountFunded(accounts[1].address));
 
       for (i = 1; i < 6; i++) {
         assert.equal(
-          await fundme.s_addressToAmountFunded(accounts[i].address),
+          await fundme.getaddressToAmountFunded(accounts[i].address),
           0
         );
       }
     });
 
-    it("allows us to cheaperWithdraw from multiple s_funders", async function () {
+    it("allows us to cheaperWithdraw from multiple getFunders", async function () {
       const accounts = await ethers.getSigners();
 
       for (let i = 1; i < 6; i++) {
@@ -205,13 +205,13 @@ describe("Fundme", async () => {
 
       console.log(endingDeployerBalance);
 
-      // make sure s_funders are reset properly
-      await expect(fundme.s_funders(0)).to.be.reverted;
-      console.log(await fundme.s_addressToAmountFunded(accounts[1].address));
+      // make sure getFunders are reset properly
+      await expect(fundme.getFunders(0)).to.be.reverted;
+      console.log(await fundme.getaddressToAmountFunded(accounts[1].address));
 
       for (i = 1; i < 6; i++) {
         assert.equal(
-          await fundme.s_addressToAmountFunded(accounts[i].address),
+          await fundme.getaddressToAmountFunded(accounts[i].address),
           0
         );
       }
