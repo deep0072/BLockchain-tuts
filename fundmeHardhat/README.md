@@ -14,5 +14,3 @@ npx hardhat run scripts/deploy.js
 to run perticular test case
 yarn hardhat test --grep "message inside the "'it'"
 ```
-
-

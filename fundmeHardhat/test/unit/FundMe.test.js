@@ -38,9 +38,7 @@ const { developmentChains } = require("../../helper-hardhat-config");
 
       describe("fund", async () => {
         it("checking fund are working or fails", async () => {
-          await expect(fundme.fund()).to.be.revertedWith(
-            "not sufficient amount please check also"
-          ); // here we are checking if there is no fund then test should not break the code.
+          await expect(fundme.fund()).to.be.revertedWith("balance is empty"); // here we are checking if there is no fund then test should not break the code.
         });
 
         it("updated amount of eth", async function () {
@@ -62,6 +60,7 @@ const { developmentChains } = require("../../helper-hardhat-config");
         beforeEach("adding some fund", async function () {
           await fundme.fund({ value: sendValue });
         });
+
         // there are follwing step
         // first get balance wrt to their account address
         it("now withdraw from single funder", async function () {
@@ -98,7 +97,7 @@ const { developmentChains } = require("../../helper-hardhat-config");
             endingDeployerBalance.add(gasCost).toString()
           );
         });
-        it("now withdraw from single funder", async function () {
+        it("now cheaperWithdraw from single funder", async function () {
           const startingFundmeBalance = await fundme.provider.getBalance(
             // getBalance is method  used to get balance of any contract
             fundme.address

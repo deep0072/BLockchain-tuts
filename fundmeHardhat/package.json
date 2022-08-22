@@ -1,4 +1,6 @@
 {
+  "name": "hardhatfundme",
+  "author": "Deepak",
   "devDependencies": {
     "@chainlink/contracts": "^0.4.2",
     "@ethersproject/abi": "^5.4.7",
@@ -19,5 +21,15 @@
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.7.21",
     "typechain": "^8.1.0"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "test:staging": "yarn hardhat test --network rinkeby",
+    "lint:fix": "yarn solhint 'contract/*.sol'",
+    "formatter": "yarn prettier --write .",
+    "coverage": "yarn hardhat coverage"
+  },
+  "dependencies": {
+    "solhint": "^3.3.7"
   }
 }
