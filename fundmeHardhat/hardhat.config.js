@@ -27,6 +27,16 @@ module.exports = {
       accounts: [RINKEBY_PRIVATE_KEY],
       chainId: 4,
       blockConfirmations: 6,
+      allowUnlimitedContractSize: true,
+      gas: 6000000,
+    },
+    goerli: {
+      url: RINKEBY_RPC_URL,
+      accounts: [RINKEBY_PRIVATE_KEY],
+      chainId: 5,
+      blockConfirmations: 6,
+      allowUnlimitedContractSize: true,
+      gas: 6000000,
     },
   },
   solidity: {

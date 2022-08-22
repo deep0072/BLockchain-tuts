@@ -9,13 +9,16 @@ error Fundme__NotOwner();
 contract Fundme {
     using priceConvert for uint256;
     address[] private s_funders;
-    uint256 public constant MINIMUM_USD = 20 * 1e18;
+    uint256 public constant MINIMUM_USD = 0.0001 * 1e18;
     mapping(address => uint256) private s_addressToAmountFunded;
     address private immutable i_owner;
     AggregatorV3Interface private s_priceFeed;
     event funded(address sender, uint256 msg);
     modifier checkOwner() {
-        if (msg.sender != i_owner) revert Fundme__NotOwner();
+        // require(msg.sender == i_owner, "not the owner");
+        if (msg.sender != i_owner) {
+            revert Fundme__NotOwner();
+        }
         _;
     }
 
@@ -33,7 +36,7 @@ contract Fundme {
         require(
             // here msg.value is first param that is defined in getConversion() function and 2nd param will be passed in paranthesis of this function
             msg.value.getConversion(s_priceFeed) >= MINIMUM_USD,
-            "not sufficient amount please check also"
+            "not sufficient amount please check also payments"
         );
 
         s_funders.push(msg.sender);
@@ -41,7 +44,7 @@ contract Fundme {
         emit funded(msg.sender, msg.value);
     }
 
-    function withdraw() public payable checkOwner {
+    function withdraw() public checkOwner {
         for (
             uint256 funderIndex = 0;
             funderIndex < s_funders.length;
@@ -63,7 +66,7 @@ contract Fundme {
 
     // declare cheaper withDraw function that cost lesser  gas fee
 
-    function cheaperWithdraw() public payable checkOwner {
+    function cheaperWithdraw() public checkOwner {
         // load funders  in to memory so that we can access it without using more gas fee in for loop
 
         address[] memory funders = s_funders;
