@@ -8,16 +8,7 @@
   </head>
   <body>
     <h1>hello there!!!</h1>
-    <script>
-      async function connect() {
-        if (typeof window.ethereum != "undefined") {
-          console.log("metmask is  there");
-          await window.ethereum.request({ method: "eth_requestAccounts" }); // this will pop up tha metmask wallet and connect it with our local server
-          console.log("connected!!!!");
-          document.getElementById("connectButton").innerHTML = "Connected";
-        }
-      }
-    </script>
+    <script src="./index.js" type="text/javascript"></script>
     <button id="connectButton" onclick="connect()">Connect</button>
   </body>
 </html>
