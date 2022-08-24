@@ -30,6 +30,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     waitConfirmations: network.config.blockConfirmations || 1,
   });
   log("fund me deployed");
+  console.log(fundme.address, "fundme address")
 
   log("-------------------------------------------------------------");
 
