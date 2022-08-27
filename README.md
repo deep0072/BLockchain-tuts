@@ -57,7 +57,7 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170017530-ed319ce6-16cc-4c32-8be4-984e01b365b5.png)
 
-## modifier function
+## modifier function :
 
 ### these function are used to remove the redundancy in solidity.
 
