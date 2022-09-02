@@ -26,11 +26,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const fundme = await deploy("Fundme", {
     from: deployer, // fetch the index of pvt key mentioned in accounts in hardhat.config.js
     args: args, // this is the address for the price feed . which will gives use the usd price of token on diffenrent chain
-    logs: true,
+    log: true,
     waitConfirmations: network.config.blockConfirmations || 1,
   });
+  console.log(`deployer:${deployer}`);
   log("fund me deployed");
-  console.log(fundme.address, "fundme address")
 
   log("-------------------------------------------------------------");
 
