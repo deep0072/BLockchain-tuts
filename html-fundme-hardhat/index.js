@@ -17,7 +17,7 @@ async function connect() {
 }
 
 async function Fund() {
-  const ethAmount = "7";
+  const ethAmount = document.getElementById("ethAmount").value;
   if (typeof window.ethereum != "undefined") {
     console.log("funding.....");
     // get connection to blockchain with help of provider
@@ -46,7 +46,11 @@ function listenForTransaction(transactionResponse, provider) {
   console.log(`Mining ${transactionResponse.hash}.............`);
   // now listen this transaction from blockhain
   // once is listener that log the event from blokchain
-  provider.once(transactionResponse.hash, (transReceipt) => {
-    console.log(`Completed with ${transReceipt.confirmations} confirmations`);
+  return new Promise((resolve, reject) => {
+    provider.once(transactionResponse.hash, (transReceipt) => {
+      console.log(`Completed with ${transReceipt.confirmations} confirmations`);
+      resolve()
+    });
+    
   });
 }
