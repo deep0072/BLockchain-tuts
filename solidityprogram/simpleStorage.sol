@@ -6,15 +6,30 @@ contract simpleStorage {
     //internal type
     // uint256   favoriteNumber
 
-    uint256 public favoriteNumber;
+    uint256 public myFavoriteNumber;
+
+    // struct are used to create own variable
+    struct Person {
+        string name;
+        uint256 favoriteNumber;
+    }
+
+    // Person public deep = Person({name: "Deepak", favoriteNumber: 90}); //{"0":"Deepak","1":"90","name":"Deepak","favoriteNumber":"90"}
+    Person[] public listOfPerson; // []
 
     function store(uint256 _favoriteNumber) public {
-        favoriteNumber = _favoriteNumber;
+        myFavoriteNumber = _favoriteNumber;
+    }
+
+    //function to add people in list
+    function addPeople(string memory _name, uint256 _favoriteNumber) public {
+        listOfPerson.push(
+            Person({name: _name, favoriteNumber: _favoriteNumber})
+        );
     }
 
     //function to read state var
-
     function retreive() public view returns (uint256) {
-        return favoriteNumber;
+        return myFavoriteNumber;
     }
 }

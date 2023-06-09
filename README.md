@@ -210,6 +210,7 @@
 ![image](https://user-images.githubusercontent.com/46425800/170831750-d843b149-9edd-4978-9097-4efb37d68da6.png)
 
 # STRUCTS
+## structs are used to create own types of variable
 
 ## store multiple types of data
 
