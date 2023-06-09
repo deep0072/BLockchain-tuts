@@ -57,8 +57,8 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170017530-ed319ce6-16cc-4c32-8be4-984e01b365b5.png)
 
-
 ## view and pure function only cost gas when they are called by function which cost gas
+
 ## modifier function :
 
 ### these function are used to remove the redundancy in solidity.
@@ -88,14 +88,14 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170218100-863c34b7-625d-4d92-b9e9-a6db597fbc58.png)
 
-### storage keyword ==> if want to change statevariable infos in function then i need to used storage keyword. just to tell the solidity data will be changed in permanent storage
+### storage keyword ==> if want to change statevariable infos in function then i need to used storage keyword. just to tell the solidity data will be changed in permanent storage.cant be used in parameter though
 
 ![image](https://user-images.githubusercontent.com/46425800/170856556-97be53c1-7f61-4d02-a4ee-1311a32b111f.png)
 
 <br> 
 <br>
 
-### memory keyword ==> if you use memory then statevariable will not be updated. as you can see the company name in given below snap shots
+### memory keyword ==> if you use memory then statevariable will not be updated. as you can see the company name in given below snap shots. btw in latest version of solidity.all variable intialised inside the function set to memory localtion by default.
 
 ![image](https://user-images.githubusercontent.com/46425800/170856572-300be7c5-1f1e-4c08-a0e9-5581e5ec4c2e.png)
 
@@ -210,6 +210,7 @@
 ![image](https://user-images.githubusercontent.com/46425800/170831750-d843b149-9edd-4978-9097-4efb37d68da6.png)
 
 # STRUCTS
+
 ## structs are used to create own types of variable
 
 ## store multiple types of data
@@ -226,7 +227,15 @@
 
 # Call Data
 
-### this is type of memory location where variable is declared and used in inputs. so whenever it is used by another function then that data do not copied in memory. it directly used. so it save gas. once we declare the variable it can't be modified
+### this is type of memory location where variable is declared and used in inputs. so whenever it is used by another function then that data do not copied in memory. it directly used. so it save gas. """once we declare the variable it can't be modified"""
+
+### string can be stored in calldata
+
+# Memory
+
+### this is type of memory location where variable is declared and used in inputs. used for temporary value also can be modified
+
+### data like structs,mapping,array, string can be stored in memory
 
 ### ![image](https://user-images.githubusercontent.com/46425800/170858826-2f1b6a68-cb2d-41de-a0ad-4ce676a07ff3.png)
 

@@ -14,6 +14,9 @@ contract simpleStorage {
         uint256 favoriteNumber;
     }
 
+    //create mapping
+    mapping(string => uint) public nameTONumber;
+
     // Person public deep = Person({name: "Deepak", favoriteNumber: 90}); //{"0":"Deepak","1":"90","name":"Deepak","favoriteNumber":"90"}
     Person[] public listOfPerson; // []
 
@@ -26,6 +29,9 @@ contract simpleStorage {
         listOfPerson.push(
             Person({name: _name, favoriteNumber: _favoriteNumber})
         );
+
+        //add data into mapping
+        nameTONumber[_name] = _favoriteNumber;
     }
 
     //function to read state var

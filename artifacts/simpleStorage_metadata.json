@@ -61,6 +61,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "nameTONumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "retreive",
 				"outputs": [
@@ -115,11 +134,11 @@
 	},
 	"sources": {
 		"solidityprogram\\simpleStorage.sol": {
-			"keccak256": "0x279b5cb21be730f99e6d8a78a5b0f90d6a6074faeafd3491857b53978d29db10",
+			"keccak256": "0x6fea50751faa41a42adba8c9ff3a2f59b19c8177c61fb1357f9ff6f315016f91",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a68075066148405b749ffcb203ef329d7deda7ff1eb497036f5fac8e0cb55889",
-				"dweb:/ipfs/QmTwE8vmeq9L7vnpMkp343z2pKmvQQrPrr1t4NZQti3D4H"
+				"bzz-raw://41edfbec890926566a8166d58a5142a3e0c1b6e046602d342faf5ab9fa97f90b",
+				"dweb:/ipfs/QmefxjEYyaxRHYCKSBeUwqWZddKivLDAoUkUu1in71ibHd"
 			]
 		}
 	},
