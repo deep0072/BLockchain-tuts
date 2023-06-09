@@ -45,7 +45,7 @@
 
 ## view function
 
-### a function that do not modify the current the state of variable
+### a function that do not modify the current the state of variable.AND READ DATA FROM BLOCKCHAIN
 
 ### also read the existing variable in code
 
@@ -57,6 +57,8 @@
 
 ![image](https://user-images.githubusercontent.com/46425800/170017530-ed319ce6-16cc-4c32-8be4-984e01b365b5.png)
 
+
+## view and pure function only cost gas when they are called by function which cost gas
 ## modifier function :
 
 ### these function are used to remove the redundancy in solidity.
