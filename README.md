@@ -239,6 +239,11 @@
 
 ### ![image](https://user-images.githubusercontent.com/46425800/170858826-2f1b6a68-cb2d-41de-a0ad-4ce676a07ff3.png)
 
+# to import specific contract from file use
+
+### import {specificContract} from "file .sol"
+
+<br>
 # 3 ways to send ether
 
 ## transfer ==> ### use 2308 gas, if trasfer fail for some reason then whole function fails

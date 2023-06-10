@@ -24,6 +24,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getMyFavNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -31,7 +44,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "listOfPerson",
+				"name": "listOfpeople",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -63,44 +76,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"name": "nameTONumber",
-				"outputs": [
-					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_myFavoriteNumber",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "retreive",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_favoriteNumber",
-						"type": "uint256"
-					}
-				],
-				"name": "store",
+				"name": "setFavoriteNumber",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -119,7 +100,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"solidityprogram\\simpleStorage.sol": "simpleStorage"
+			"solidityprogram\\storageFactory\\simpleStorage.sol": "SimpleStorage"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -133,12 +114,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"solidityprogram\\simpleStorage.sol": {
-			"keccak256": "0x6fea50751faa41a42adba8c9ff3a2f59b19c8177c61fb1357f9ff6f315016f91",
+		"solidityprogram\\storageFactory\\simpleStorage.sol": {
+			"keccak256": "0xbd3f40fbf2e668d6867ba0f4a780d7a2dd07cf2edc30319876a769cb54988753",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://41edfbec890926566a8166d58a5142a3e0c1b6e046602d342faf5ab9fa97f90b",
-				"dweb:/ipfs/QmefxjEYyaxRHYCKSBeUwqWZddKivLDAoUkUu1in71ibHd"
+				"bzz-raw://7b0268098018f667a61ccc51131068cd0949f76c75a5ca0414271c5bb11fa7cb",
+				"dweb:/ipfs/QmbkpXmK3sMtRvwYraiQdeebHmuTqSBmGUNAZcdJCMW5A8"
 			]
 		}
 	},
