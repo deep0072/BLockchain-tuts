@@ -111,6 +111,11 @@
 
 ### Constant ==> some time there is a state variable that do not change. so we need to declate regular state variable as constant. constant variable always use less gas fee.
 
+<br>
+
+## immutable variable 
+### Immutbale ==> some time there is a state variable that do not change like constant variable . so we need to declate regular state variable as immutable. these can bde declared one time in the "constructor".
+
 ### lets understand it with example
 
 ![image](https://user-images.githubusercontent.com/46425800/170443559-dc67e95a-4229-4b43-9c7d-63b07e89c413.png)
