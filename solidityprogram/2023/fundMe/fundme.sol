@@ -5,12 +5,12 @@ import "priceConverter.sol";
 
 contract FundMe {
     using PriceConverter for uint256; // importing library
-    uint256 public minAmount = 5e18; // minimum amount in usd is 15 dollar;
+    uint256 public constant MIN_AMOUNT = 5e18; // minimum amount in usd is 15 dollar;
 
     mapping(address funders => uint256 amountToFunded)
         public addressToAmountFunded;
     address[] public funders;
-    address owner;
+    address immutable i_owner;
 
     constructor(address _owner) {
         owner = _owner;
