@@ -2,18 +2,31 @@
 pragma solidity ^0.8.0;
 
 import "priceConverter.sol";
-contract FundMe {
 
+contract FundMe {
     using PriceConverter for uint256; // importing library
     uint256 public minAmount = 5e18; // minimum amount in usd is 15 dollar;
 
-    mapping(address funders => uint256 amountToFunded) public addressToAmountFunded;
+    mapping(address funders => uint256 amountToFunded)
+        public addressToAmountFunded;
     address[] public funders;
+    address owner;
+
+    constructor(address _owner) {
+        owner = _owner;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "not the owner");
+        _;
+    }
+
     function fund() public payable {
-        require( msg.value.getConversionRate < minAmount, "not enough eth");
+        require(msg.value.getConversionRate < minAmount, "not enough eth");
         funders.push(msg.sender);
-        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
-        
+        addressToAmountFunded[msg.sender] =
+            addressToAmountFunded[msg.sender] +
+            msg.value;
     }
 
     function withdraw() public {}
@@ -23,17 +36,19 @@ contract FundMe {
             .version();
     }
 
+    function getPrice() public view returns (uint256) {
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(
+            0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
+        );
 
-    function getPrice() public view returns(uint256) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419);
+        (, int256 price, , , ) = priceFeed.latestRoundData();
 
-        (, int256 price, ,,) = priceFeed.latestRoundData();
-
-        return uint256(price)*1e10; // price of eth in usd followed by 10 zeross
+        return uint256(price) * 1e10; // price of eth in usd followed by 10 zeross
     }
 
-    function getConversionRate(uint256 amountOfEth) public view returns(uint256){
-
+    function getConversionRate(
+        uint256 amountOfEth
+    ) public view returns (uint256) {
         // its like 1eth = 1followed by 18 zeros in wei
         // eth prices = price followed by 18 digit
         // eth * eth price = amount followed by 36 digit
@@ -42,8 +57,24 @@ contract FundMe {
 
         uint256 amountOfEthInUsd = (ethPriceInUsd * amountOfEth) / 1e18;
 
-        return amountOfEthInUsd
+        return amountOfEthInUsd;
     }
 
+    function withdraw() public onlyOwner {
+        for (
+            uint256 functionIndex = 0;
+            funderIndex < funders.length;
+            funderIndex++
+        ) {
+            address funder = funders[funderIndex];
 
+            addressToAmountFunded[funder] = 0;
+        }
+
+        funders = new address[](0);
+
+        (bool success, ) = payable(owner).call{value: addres(this).balance}("");
+
+        require(success, "transactions failed");
+    }
 }
