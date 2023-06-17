@@ -13,7 +13,7 @@ contract FundMe {
     address immutable i_owner;
 
     constructor(address _owner) {
-        owner = _owner;
+        i_owner = _owner;
     }
 
     modifier onlyOwner() {
@@ -22,7 +22,7 @@ contract FundMe {
     }
 
     function fund() public payable {
-        require(msg.value.getConversionRate < minAmount, "not enough eth");
+        require(msg.value.getConversionRate < MIN_AMOUNT, "not enough eth");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] =
             addressToAmountFunded[msg.sender] +
@@ -43,7 +43,9 @@ contract FundMe {
 
         funders = new address[](0);
 
-        (bool success, ) = payable(owner).call{value: addres(this).balance}("");
+        (bool success, ) = payable(i_owner).call{value: addres(this).balance}(
+            ""
+        );
 
         require(success, "transactions failed");
     }
