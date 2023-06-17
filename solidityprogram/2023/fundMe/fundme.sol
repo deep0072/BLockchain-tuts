@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+error UnAuthorised();
+error NotEnoughBalance();
+error NotEnoughFund();
 import "priceConverter.sol";
 
 contract FundMe {
@@ -17,12 +20,17 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "not the owner");
+        if (msg.sender != owner) {
+            revert UnAuthorised();
+        }
         _;
     }
 
     function fund() public payable {
-        require(msg.value.getConversionRate < MIN_AMOUNT, "not enough eth");
+        if (msg.value.getConversionRate < MIN_AMOUNT) {
+            revert NotEnoughFund();
+        }
+
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] =
             addressToAmountFunded[msg.sender] +
@@ -30,7 +38,10 @@ contract FundMe {
     }
 
     function withdraw() public onlyOwner {
-        require(address(this).balance > 0, "not enought eth");
+        if (address(this).balance < 0) {
+            revert NotEnoughEth();
+        }
+
         for (
             uint256 functionIndex = 0;
             funderIndex < funders.length;
@@ -48,5 +59,15 @@ contract FundMe {
         );
 
         require(success, "transactions failed");
+    }
+
+    // recieve and fallback function
+
+    // if somebody send money accidently from metamsj  this contract then receive function  will  route to this fund fucntion
+    // lets say user send 1 $ dollar to contract. but it is minimum 5 dollar. as recieve function route to fund function then it will
+    // revert in that case
+
+    receive() external payable {
+        fund();
     }
 }
