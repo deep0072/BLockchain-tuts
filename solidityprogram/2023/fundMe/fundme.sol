@@ -1,15 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "interfaces/AggregatorV3Interface.sol";
-
+import "priceConverter.sol";
 contract FundMe {
+
+    using PriceConverter for uint256; // importing library
     uint256 public minAmount = 5e18; // minimum amount in usd is 15 dollar;
 
     mapping(address funders => uint256 amountToFunded) public addressToAmountFunded;
     address[] public funders;
     function fund() public payable {
-        require( getConversionRate(amountOfEth);(msg.value) < minAmount, "not enough eth");
+        require( msg.value.getConversionRate < minAmount, "not enough eth");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
         
