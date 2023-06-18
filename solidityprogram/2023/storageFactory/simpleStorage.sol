@@ -11,7 +11,7 @@ contract SimpleStorage {
 
     People[] public listOfpeople;
 
-    function setFavoriteNumber(uint256 _myFavoriteNumber) public {
+    function setFavoriteNumber(uint256 _myFavoriteNumber) public virtual {
         myFavoriteNumber = _myFavoriteNumber;
     }
 
