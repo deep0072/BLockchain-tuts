@@ -296,7 +296,7 @@
 
 ### Deploying a common code by creating a library reduces the gas cost.
 
-### in this we can declare the state variable
+### but you can't declare any state variable and you can't send ether.
 
 #### in this snap shot library is declared outside the function. then in contract library function are accesed using dot notations
 
