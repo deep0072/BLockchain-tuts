@@ -15,12 +15,12 @@ import "./Interfaces/AggregatorV3Interface.sol";
 
 library PriceConverter {
     function getPrice() internal view returns (uint256) {
-        (, int256 priceFeed, , , ) = AggregatorV3Interface(
-            0x694AA1769357215DE4FAC081bf1f309aDC325306
-        );
+         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
 
-        uint256 ethPriceInUsd = priceFeed.latestRoundData();
-        return uint256(ethPriceInUsd);
+        (,int256 price,  , , ) = priceFeed.latestRoundData();
+        // price return in usd will be followed by 10 zeros
+
+        return uint256(price*1e10);
     }
 
     function ethConversionRate(
