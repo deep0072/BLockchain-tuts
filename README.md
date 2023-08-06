@@ -393,11 +393,11 @@
 
 #  abi.encodeWithSignature(functionSignature(), args) 
 
-##  it takes two params first is function signature( function name with its params in string) and second is the function parameter. used to call function directly by just mentioning its name instring and passing arguments.
+##  it takes two params first is function signature( function name with its params in string) and second is the function parameter. used to call function directly by just mentioning its name in string and passing arguments.
 ```abi.encodeWithSignature("transfer(address,uint256)", someAddress, amount)```
 <br>
 #  abi.encodeWithSelector(dunctionSelectior(), args) 
 
-##  it takes two params first is the function signature( function name with its params in the string) and the second is the function parameter. used to call function directly by just mentioning its name function selector(bytes format of function name) and passing arguments.
+##  it takes two params first is the function signature( function name with its params in the string) and the second is the function parameter. used to call function directly by just mentioning  function selector(bytes format of function name) and passing arguments.
 ```abi.encodeWithSelector(getFunctionSelectorOne(), someAddress, amount)``` 
 ``` but in this we first need to get the functionSelector ```
