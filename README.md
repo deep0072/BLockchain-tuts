@@ -405,3 +405,7 @@
 ##  it takes two params first is the function signature( function name with its params in the string) and the second is the function parameter. used to call function directly by just mentioning  function selector(bytes format of function name) and passing arguments.
 ```abi.encodeWithSelector(getFunctionSelectorOne(), someAddress, amount)``` 
 ``` but in this we first need to get the functionSelector ```
+
+
+# deelegatecall()
+![image](https://github.com/deep0072/BLockchain-tuts/assets/46425800/f0abfd1d-6ed1-43a9-8bca-1214e01c6d46)
